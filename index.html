@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>국어 교과서 속 〈나는 보리〉를 다시 보다</title>
+  <meta
+    name="description"
+    content="중학교 1학년 학생들의 영화 〈나는 보리〉 포스터 리디자인 웹전시"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="site-header" aria-label="상단 메뉴">
+    <nav class="nav">
+      <a class="brand" href="#hero" aria-label="전시 첫 화면으로 이동">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>나는 보리 웹전시</span>
+      </a>
+      <div class="nav-links" aria-label="주요 영역">
+        <a href="#worksheets">웹활동지</a>
+        <a href="#posters">포스터관</a>
+        <a href="#reviews">한줄평</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-band" id="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Middle School Korean Class Film Archive</p>
+          <h1 id="hero-title">국어 교과서 속 〈나는 보리〉를 다시 보다</h1>
+          <p class="subtitle">1학년 영화 포스터 리디자인 웹전시</p>
+          <p class="intro">
+            중학교 1학년 학생들이 국어 교과서에 수록된 시나리오 〈나는 보리〉를 읽고 영화를 감상한 뒤,
+            각자가 기억에 남는 명장면을 고르고 한줄평을 작성했습니다. 학생들의 감상과 선택을 바탕으로
+            세 학급이 각각 하나의 영화 포스터를 새롭게 제작했습니다.
+          </p>
+          <div class="hero-actions" aria-label="전시 바로가기">
+            <a class="button button-primary" href="#posters">포스터 보러 가기</a>
+            <a class="button" href="#worksheets">웹활동지 보기</a>
+            <a class="button" href="#reviews">한줄평 모아보기</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="필름과 감상 기록을 형상화한 전시 이미지" role="img">
+          <div class="film-card film-card-large">
+            <span class="film-hole film-hole-top" aria-hidden="true"></span>
+            <span class="film-hole film-hole-bottom" aria-hidden="true"></span>
+            <div class="poster-preview">
+              <span class="preview-sky" aria-hidden="true"></span>
+              <span class="preview-sea" aria-hidden="true"></span>
+              <span class="preview-paper" aria-hidden="true">보리의 마음을 따라<br>다시 바라본 장면들</span>
+            </div>
+          </div>
+          <div class="review-scrap" aria-hidden="true">
+            <span>★★★★★</span>
+            <p>말하지 않아도 전해지는 마음을 오래 기억하고 싶다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band worksheets-band" id="worksheets" aria-labelledby="worksheets-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Reading Notes</p>
+          <h2 id="worksheets-title">웹활동지로 보는 감상 과정</h2>
+          <p>
+            학생들은 영화를 감상한 뒤 웹활동지를 통해 자신의 감상을 정리했습니다. 웹활동지에는 학생들이
+            고른 명장면, 장면을 선택한 이유, 영화에 대한 별점과 한줄평이 담겨 있습니다. 이 공간에서는
+            완성된 포스터가 만들어지기 전, 학생들이 영화를 어떻게 바라보고 해석했는지를 확인할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="worksheet-layout">
+          <div class="worksheet-board" id="worksheetBoard" aria-live="polite"></div>
+          <aside class="scene-archive" aria-labelledby="scene-title">
+            <h3 id="scene-title">명장면 아카이브</h3>
+            <div id="sceneList" class="scene-list"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band posters-band" id="posters" aria-labelledby="posters-title">
+      <div class="section-inner">
+        <div class="section-heading section-heading-center">
+          <p class="eyebrow">Poster Gallery</p>
+          <h2 id="posters-title">학급별 포스터관</h2>
+          <p>
+            세 학급이 함께 고른 장면과 한줄평을 바탕으로 완성한 영화 포스터입니다.
+            장면을 다시 고르고 문장을 덧붙이며, 학생들은 영화를 자신들의 언어로 새롭게 읽어 냈습니다.
+          </p>
+        </div>
+
+        <div class="poster-grid" id="posterGrid"></div>
+      </div>
+    </section>
+
+    <section class="section-band reviews-band" id="reviews" aria-labelledby="reviews-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">One-Line Reviews</p>
+          <h2 id="reviews-title">한줄평 모아보기</h2>
+          <p>
+            학생들이 남긴 별점과 한줄평을 영화 리뷰 카드처럼 모았습니다.
+            같은 영화를 보았지만, 각자의 시선은 조금씩 다른 빛을 띱니다.
+          </p>
+        </div>
+
+        <div class="filter-bar" aria-label="학급별 한줄평 필터">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter-button" type="button" data-filter="1" aria-pressed="false">1반</button>
+          <button class="filter-button" type="button" data-filter="2" aria-pressed="false">2반</button>
+          <button class="filter-button" type="button" data-filter="3" aria-pressed="false">3반</button>
+        </div>
+
+        <div class="review-grid" id="reviewGrid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>국어 교과서 속 〈나는 보리〉를 다시 보다 · 1학년 영화 포스터 리디자인 웹전시</p>
+  </footer>
+
+  <div class="modal" id="posterModal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <section
+      class="modal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      tabindex="-1"
+    >
+      <button class="modal-close" type="button" data-modal-close aria-label="포스터 상세 창 닫기">×</button>
+      <div class="modal-body" id="modalBody"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
