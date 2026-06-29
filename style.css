@@ -207,13 +207,17 @@ h3 {
 }
 
 h1 {
-  max-width: 780px;
-  font-size: clamp(2.28rem, 5.5vw, 5.05rem);
+  max-width: 900px;
+  font-size: 4.75rem;
   font-weight: 900;
 }
 
 .hero-title-line {
   display: block;
+}
+
+.hero-title-line:first-child {
+  white-space: nowrap;
 }
 
 .no-break {
@@ -817,6 +821,10 @@ h1 {
 }
 
 @media (max-width: 960px) {
+  h1 {
+    font-size: 4rem;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 34px;
@@ -868,6 +876,18 @@ h1 {
 @media (max-width: 680px) {
   :root {
     --header-height: 64px;
+  }
+
+  h1 {
+    font-size: 2.55rem;
+    line-height: 1.18;
+  }
+
+  .hero-title-line:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.22em;
+    row-gap: 0;
   }
 
   .nav {
@@ -947,6 +967,12 @@ h1 {
   .modal-poster {
     min-height: 460px;
     border-width: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2.12rem;
   }
 }
 

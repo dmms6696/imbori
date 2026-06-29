@@ -172,6 +172,10 @@ function createPosterImageMarkup(poster, imageClass = "", loading = "lazy") {
 }
 
 function renderPosters() {
+  if (!posterGrid) {
+    return;
+  }
+
   posterGrid.innerHTML = posters.map((poster) => `
     <article class="poster-card">
       <div class="poster-art">
@@ -204,6 +208,10 @@ function renderPosters() {
 }
 
 function renderReviews(filter = "all") {
+  if (!reviewGrid) {
+    return;
+  }
+
   const filteredReviews = filter === "all"
     ? reviews
     : reviews.filter((review) => String(review.classNumber) === filter);
@@ -308,10 +316,12 @@ function handleKeydown(event) {
 }
 
 function init() {
-  activityFrame.src = activityUrl;
-
   renderPosters();
   renderReviews();
+
+  if (activityFrame) {
+    activityFrame.src = activityUrl;
+  }
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", handleFilterClick);
