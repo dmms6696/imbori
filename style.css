@@ -208,8 +208,16 @@ h3 {
 
 h1 {
   max-width: 780px;
-  font-size: clamp(2.38rem, 6vw, 5.35rem);
+  font-size: clamp(2.28rem, 5.5vw, 5.05rem);
   font-weight: 900;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.no-break {
+  white-space: nowrap;
 }
 
 .subtitle {
@@ -397,12 +405,6 @@ h1 {
 
 .worksheets-band {
   background: rgba(255, 250, 240, 0.62);
-}
-
-.activity-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  margin: -10px 0 16px;
 }
 
 .activity-frame-shell {
@@ -770,11 +772,6 @@ h1 {
   padding: 8px 4px 12px;
 }
 
-.modal-image-link {
-  width: 100%;
-  margin-top: 18px;
-}
-
 .modal-content h2 {
   font-size: clamp(1.7rem, 4vw, 2.6rem);
 }
@@ -908,10 +905,6 @@ h1 {
 
   .hero-actions {
     display: grid;
-  }
-
-  .activity-toolbar {
-    margin-top: 0;
   }
 
   .button {

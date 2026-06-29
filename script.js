@@ -124,7 +124,6 @@ const reviews = [
 const posterGrid = document.querySelector("#posterGrid");
 const reviewGrid = document.querySelector("#reviewGrid");
 const activityFrame = document.querySelector("#activityFrame");
-const activityOpenLink = document.querySelector("#activityOpenLink");
 const filterButtons = document.querySelectorAll(".filter-button");
 const modal = document.querySelector("#posterModal");
 const modalPanel = modal.querySelector(".modal-panel");
@@ -237,16 +236,6 @@ function openPosterModal(posterId) {
       <div class="modal-content">
         <p class="modal-kicker">1학년 ${escapeHtml(poster.classNumber)}반 포스터</p>
         <h2 id="modalTitle">${escapeHtml(poster.title)}</h2>
-        ${poster.imageSrc ? `
-          <a
-            class="button button-primary modal-image-link"
-            href="${escapeHtml(poster.imageSrc)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            포스터 원본 크게 열기
-          </a>
-        ` : ""}
         <div class="modal-section">
           <h3>대표 명장면</h3>
           <p>${escapeHtml(poster.mainScene)}</p>
@@ -320,7 +309,6 @@ function handleKeydown(event) {
 
 function init() {
   activityFrame.src = activityUrl;
-  activityOpenLink.href = activityUrl;
 
   renderPosters();
   renderReviews();
