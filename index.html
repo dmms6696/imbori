@@ -20,8 +20,8 @@
         <span>나는 보리 웹전시</span>
       </a>
       <div class="nav-links" aria-label="주요 영역">
-        <a href="#worksheets">웹활동지</a>
         <a href="#posters">포스터관</a>
+        <a href="#worksheets">웹활동지</a>
         <a href="#reviews">한줄평</a>
       </div>
     </nav>
@@ -64,56 +64,6 @@
       </div>
     </section>
 
-    <section class="section-band worksheets-band" id="worksheets" aria-labelledby="worksheets-title">
-      <div class="section-inner">
-        <div class="section-heading">
-          <p class="eyebrow">Reading Notes</p>
-          <h2 id="worksheets-title">웹활동지로 보는 감상 과정</h2>
-          <p>
-            학생들은 영화를 감상한 뒤 웹활동지를 통해 자신의 감상을 정리했습니다. 웹활동지에는 학생들이
-            고른 명장면, 장면을 선택한 이유, 영화에 대한 별점과 한줄평이 담겨 있습니다. 이 공간에서는
-            완성된 포스터가 만들어지기 전, 학생들이 영화를 어떻게 바라보고 해석했는지를 확인할 수 있습니다.
-          </p>
-        </div>
-
-        <div class="activity-showcase" aria-label="영화 나는 보리 감상 웹활동지">
-          <div class="activity-copy">
-            <span class="class-badge">실제 웹활동지</span>
-            <h3>영화 「나는 보리」 감상 활동지</h3>
-            <p>
-              학생들은 이 활동지에 명장면, 선택 이유, 별점, 한줄평을 남겼습니다.
-              아래 미리보기로 활동지의 흐름을 살펴보고, 새 창에서 직접 확인할 수 있습니다.
-            </p>
-            <a
-              class="button button-primary"
-              id="activityOpenLink"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              웹활동지 새 창에서 열기
-            </a>
-          </div>
-          <div class="activity-frame-shell">
-            <iframe
-              id="activityFrame"
-              title="영화 나는 보리 감상 웹활동지 미리보기"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-
-        <div class="worksheet-layout">
-          <div class="worksheet-board" id="worksheetBoard" aria-live="polite"></div>
-          <aside class="scene-archive" aria-labelledby="scene-title">
-            <h3 id="scene-title">명장면 아카이브</h3>
-            <div id="sceneList" class="scene-list"></div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
     <section class="section-band posters-band" id="posters" aria-labelledby="posters-title">
       <div class="section-inner">
         <div class="section-heading section-heading-center">
@@ -126,6 +76,40 @@
         </div>
 
         <div class="poster-grid" id="posterGrid"></div>
+      </div>
+    </section>
+
+    <section class="section-band worksheets-band" id="worksheets" aria-labelledby="worksheets-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Reading Notes</p>
+          <h2 id="worksheets-title">웹활동지로 보는 감상 과정</h2>
+          <p>
+            학생들이 영화를 감상한 뒤 명장면, 선택 이유, 별점과 한줄평을 정리한 실제 웹활동지입니다.
+          </p>
+        </div>
+
+        <div class="activity-toolbar">
+          <a
+            class="button button-primary"
+            id="activityOpenLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            웹활동지 새 창에서 열기
+          </a>
+        </div>
+
+        <div class="activity-frame-shell activity-frame-full" aria-label="영화 나는 보리 감상 웹활동지">
+          <iframe
+            id="activityFrame"
+            title="영화 나는 보리 감상 웹활동지"
+            loading="lazy"
+            scrolling="no"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
     </section>
 

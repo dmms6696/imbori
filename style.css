@@ -399,42 +399,14 @@ h1 {
   background: rgba(255, 250, 240, 0.62);
 }
 
-.activity-showcase {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
-  gap: 22px;
-  align-items: stretch;
-  margin: 0 0 24px;
-  border: 1px solid rgba(74, 83, 88, 0.16);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(255, 250, 240, 0.96), rgba(217, 236, 245, 0.58)),
-    var(--paper);
-  box-shadow: var(--small-shadow);
-  overflow: hidden;
-}
-
-.activity-copy {
-  padding: 26px;
-  align-self: center;
-}
-
-.activity-copy h3 {
-  margin-top: 18px;
-  font-size: 1.46rem;
-}
-
-.activity-copy p {
-  margin: 12px 0 22px;
-  color: #52646e;
-}
-
-.activity-copy .button {
-  width: fit-content;
+.activity-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: -10px 0 16px;
 }
 
 .activity-frame-shell {
-  min-height: 520px;
+  min-height: 1120px;
   padding: 14px;
   background:
     repeating-linear-gradient(
@@ -444,151 +416,24 @@ h1 {
     );
 }
 
+.activity-frame-full {
+  width: 100%;
+}
+
 .activity-frame-shell iframe {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 492px;
+  height: 1120px;
+  min-height: 1120px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
-}
-
-.worksheet-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 24px;
-  align-items: start;
-}
-
-.worksheet-board {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.worksheet-card {
-  position: relative;
-  min-height: 286px;
-  padding: 22px;
-  border: 1px solid rgba(74, 83, 88, 0.16);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(90deg, rgba(142, 166, 179, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(142, 166, 179, 0.08) 1px, transparent 1px),
-    rgba(255, 250, 240, 0.94);
-  background-size: 22px 22px;
-  box-shadow: var(--small-shadow);
-}
-
-.worksheet-card::before {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border: 1px solid rgba(141, 121, 91, 0.14);
-  border-radius: 6px;
-  pointer-events: none;
-}
-
-.worksheet-card > * {
-  position: relative;
-}
-
-.worksheet-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.class-badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  padding: 4px 10px;
-  border: 1px solid rgba(95, 110, 118, 0.16);
-  border-radius: 999px;
-  color: #425864;
-  background: rgba(217, 236, 245, 0.7);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-.student-code {
-  color: #82909a;
-  font-family: "Segoe Print", "Nanum Pen Script", cursive;
-  font-size: 0.95rem;
-}
-
-.worksheet-card h3 {
-  margin-bottom: 16px;
-  color: #344650;
-  font-size: 1.16rem;
-}
-
-.worksheet-field {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px dashed rgba(88, 102, 110, 0.22);
-}
-
-.worksheet-field strong {
-  display: block;
-  margin-bottom: 4px;
-  color: #6b7f89;
-  font-size: 0.82rem;
-}
-
-.worksheet-field p {
-  margin: 0;
-  color: #35444c;
 }
 
 .stars {
   color: #b9764f;
   letter-spacing: 0.05em;
   white-space: nowrap;
-}
-
-.scene-archive {
-  position: sticky;
-  top: calc(var(--header-height) + 18px);
-  border: 1px solid rgba(74, 83, 88, 0.16);
-  border-radius: var(--radius);
-  background: rgba(239, 228, 210, 0.48);
-  box-shadow: var(--small-shadow);
-  padding: 22px;
-}
-
-.scene-archive h3 {
-  margin-bottom: 16px;
-  font-size: 1.18rem;
-}
-
-.scene-list {
-  display: grid;
-  gap: 12px;
-}
-
-.scene-item {
-  padding: 14px;
-  border: 1px solid rgba(78, 91, 98, 0.13);
-  border-radius: var(--radius);
-  background: rgba(255, 250, 240, 0.76);
-}
-
-.scene-item strong {
-  display: block;
-  color: #334750;
-  line-height: 1.35;
-}
-
-.scene-item span {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 .posters-band {
@@ -622,11 +467,18 @@ h1 {
   background: #2f3a40;
 }
 
-.poster-art img,
-.modal-poster img {
+.poster-art img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  background: #303c43;
+}
+
+.modal-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   background: #303c43;
 }
@@ -841,7 +693,7 @@ h1 {
   z-index: 50;
   display: none;
   place-items: center;
-  padding: 20px;
+  padding: clamp(8px, 1.4vw, 20px);
 }
 
 .modal.is-open {
@@ -858,8 +710,8 @@ h1 {
 .modal-panel {
   position: relative;
   z-index: 1;
-  width: min(100%, 960px);
-  max-height: min(860px, 92svh);
+  width: min(98vw, 1480px);
+  max-height: 96svh;
   overflow: auto;
   border: 1px solid rgba(255, 250, 240, 0.34);
   border-radius: var(--radius);
@@ -896,19 +748,19 @@ h1 {
 
 .modal-body {
   clear: both;
-  padding: 22px;
+  padding: clamp(12px, 1.4vw, 22px);
 }
 
 .modal-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr);
-  gap: 26px;
+  grid-template-columns: minmax(520px, 1fr) minmax(280px, 360px);
+  gap: 18px;
   align-items: start;
 }
 
 .modal-poster {
-  min-height: 560px;
-  border: 12px solid #303c43;
+  min-height: 0;
+  border: 10px solid #303c43;
   border-radius: var(--radius);
   overflow: hidden;
   background: #303c43;
@@ -916,6 +768,11 @@ h1 {
 
 .modal-content {
   padding: 8px 4px 12px;
+}
+
+.modal-image-link {
+  width: 100%;
+  margin-top: 18px;
 }
 
 .modal-content h2 {
@@ -984,16 +841,10 @@ h1 {
     bottom: 20px;
   }
 
-  .worksheet-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .activity-showcase {
-    grid-template-columns: 1fr;
-  }
-
-  .scene-archive {
-    position: static;
+  .activity-frame-shell,
+  .activity-frame-shell iframe {
+    min-height: 1040px;
+    height: 1040px;
   }
 
   .poster-grid,
@@ -1007,6 +858,13 @@ h1 {
 
   .modal-layout {
     grid-template-columns: 1fr;
+  }
+
+  .modal-poster,
+  .modal-content {
+    width: min(100%, 860px);
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
@@ -1052,6 +910,10 @@ h1 {
     display: grid;
   }
 
+  .activity-toolbar {
+    margin-top: 0;
+  }
+
   .button {
     width: 100%;
   }
@@ -1067,13 +929,14 @@ h1 {
     transform: rotate(-1deg);
   }
 
-  .worksheet-board {
-    grid-template-columns: 1fr;
+  .activity-frame-shell {
+    padding: 10px;
   }
 
-  .worksheet-card {
-    min-height: 0;
-    padding: 20px;
+  .activity-frame-shell,
+  .activity-frame-shell iframe {
+    min-height: 980px;
+    height: 980px;
   }
 
   .poster-art {

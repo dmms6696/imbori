@@ -1,5 +1,5 @@
-// Replace the sample data below with actual student worksheet data and poster image paths.
-// For poster images, put files in a folder such as images/ and change imageSrc to "images/class-1-poster.jpg".
+// Replace imageSrc values with your final poster image paths.
+// Example: imageSrc: "assets/posters/class-2-poster.png"
 const activityUrl = "https://script.google.com/macros/s/AKfycbwvvqpjxUDxk86gbdVjh8EVd_rA_RMzSHn1DR6YJNtaRuNo6Plf6EQV2a5accizl7U/exec";
 
 const posters = [
@@ -54,89 +54,7 @@ const posters = [
   }
 ];
 
-// Worksheet cards are sample exhibition records. Add or edit entries after collecting student responses.
-const worksheets = [
-  {
-    id: "w-101",
-    classNumber: 1,
-    studentLabel: "학생 A",
-    scene: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면",
-    reason: "말하지 않아도 서로를 바라보는 표정에서 따뜻한 마음이 전해져 오래 기억에 남았다.",
-    rating: 4,
-    review: "마음으로 소통하는 따뜻한 영화"
-  },
-  {
-    id: "w-102",
-    classNumber: 1,
-    studentLabel: "학생 B",
-    scene: "보리와 가족이 마음을 확인하는 장면",
-    reason: "소리로 다 말하지 않아도 마음을 전할 수 있다는 점이 영화의 주제와 잘 어울렸다.",
-    rating: 4,
-    review: "말하지 않아도 전할 수 있다"
-  },
-  {
-    id: "w-201",
-    classNumber: 2,
-    studentLabel: "학생 C",
-    scene: "소리와 침묵 사이에서 마음을 나누는 장면",
-    reason: "말이 없어도 서로를 이해하려는 모습이 영화의 주제와 가장 잘 어울렸다.",
-    rating: 5,
-    review: "듣는다는 말의 뜻을 다시 생각하게 했다."
-  },
-  {
-    id: "w-202",
-    classNumber: 2,
-    studentLabel: "학생 D",
-    scene: "손짓과 표정으로 대화하는 장면",
-    reason: "표정 하나에도 마음이 담길 수 있다는 점이 인상 깊었다.",
-    rating: 4,
-    review: "조용한 장면이 더 크게 느껴졌다."
-  },
-  {
-    id: "w-301",
-    classNumber: 3,
-    studentLabel: "학생 E",
-    scene: "보리가 자신의 진심을 마주하는 장면",
-    reason: "보리가 조금씩 성장하는 모습이 보여서 영화의 마지막 감정과 잘 이어졌다.",
-    rating: 5,
-    review: "보리의 마음을 응원하게 되는 영화였다."
-  },
-  {
-    id: "w-302",
-    classNumber: 3,
-    studentLabel: "학생 F",
-    scene: "가족을 다시 바라보는 장면",
-    reason: "처음에는 답답했지만 마지막에는 서로를 이해하려는 마음이 보여서 따뜻했다.",
-    rating: 4,
-    review: "가족을 새롭게 보는 법을 알려 주었다."
-  }
-];
-
-// Scene archive data can be used for counts, representative scenes, or class notes.
-const scenes = [
-  {
-    title: "가족의 마음을 조용히 바라보는 보리의 장면",
-    note: "1반 포스터의 중심 장면 · 외로움과 애정"
-  },
-  {
-    title: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면",
-    note: "1반 실제 포스터 장면 · 마음으로 전하는 말"
-  },
-  {
-    title: "소리와 침묵 사이에서 마음을 나누는 장면",
-    note: "2반 포스터의 중심 장면 · 소통과 이해"
-  },
-  {
-    title: "보리가 자신의 진심을 마주하는 장면",
-    note: "3반 포스터의 중심 장면 · 성장과 자기 이해"
-  },
-  {
-    title: "바다와 하늘이 함께 보이는 장면",
-    note: "여러 학생이 고른 풍경 장면 · 여백과 감정"
-  }
-];
-
-// Review cards are intentionally separated from worksheets so they can be edited for public display.
+// Add, remove, or edit review cards here. The classNumber controls the class filter.
 const reviews = [
   {
     id: "r-101",
@@ -204,8 +122,6 @@ const reviews = [
 ];
 
 const posterGrid = document.querySelector("#posterGrid");
-const worksheetBoard = document.querySelector("#worksheetBoard");
-const sceneList = document.querySelector("#sceneList");
 const reviewGrid = document.querySelector("#reviewGrid");
 const activityFrame = document.querySelector("#activityFrame");
 const activityOpenLink = document.querySelector("#activityOpenLink");
@@ -230,20 +146,21 @@ function renderStars(rating) {
   return `${"★".repeat(filled)}${"☆".repeat(maxStars - filled)}`;
 }
 
-function createPosterImageMarkup(poster, modifierClass = "") {
+function createPosterImageMarkup(poster, imageClass = "", loading = "lazy") {
   if (poster.imageSrc) {
     return `
       <img
+        class="${escapeHtml(imageClass)}"
         src="${escapeHtml(poster.imageSrc)}"
         alt="${escapeHtml(poster.imageAlt)}"
-        loading="lazy"
+        loading="${escapeHtml(loading)}"
       >
     `;
   }
 
   return `
     <div
-      class="poster-placeholder ${modifierClass}"
+      class="poster-placeholder ${escapeHtml(imageClass)}"
       role="img"
       aria-label="${escapeHtml(poster.imageAlt)} 이미지가 들어갈 자리"
     >
@@ -287,43 +204,6 @@ function renderPosters() {
   `).join("");
 }
 
-function renderWorksheets() {
-  worksheetBoard.innerHTML = worksheets.map((item) => `
-    <article class="worksheet-card">
-      <div class="worksheet-meta">
-        <span class="class-badge">1학년 ${escapeHtml(item.classNumber)}반</span>
-        <span class="student-code">${escapeHtml(item.studentLabel)}</span>
-      </div>
-      <h3>${escapeHtml(item.scene)}</h3>
-      <div class="worksheet-field">
-        <strong>선택 이유</strong>
-        <p>${escapeHtml(item.reason)}</p>
-      </div>
-      <div class="worksheet-field">
-        <strong>별점</strong>
-        <p>
-          <span class="stars" aria-label="${escapeHtml(item.rating)}점 만점 5점">
-            ${renderStars(item.rating)}
-          </span>
-        </p>
-      </div>
-      <div class="worksheet-field">
-        <strong>한줄평</strong>
-        <p>${escapeHtml(item.review)}</p>
-      </div>
-    </article>
-  `).join("");
-}
-
-function renderScenes() {
-  sceneList.innerHTML = scenes.map((scene) => `
-    <article class="scene-item">
-      <strong>${escapeHtml(scene.title)}</strong>
-      <span>${escapeHtml(scene.note)}</span>
-    </article>
-  `).join("");
-}
-
 function renderReviews(filter = "all") {
   const filteredReviews = filter === "all"
     ? reviews
@@ -352,11 +232,21 @@ function openPosterModal(posterId) {
   modalBody.innerHTML = `
     <div class="modal-layout">
       <div class="modal-poster">
-        ${createPosterImageMarkup(poster, "poster-placeholder-modal")}
+        ${createPosterImageMarkup(poster, "modal-poster-image", "eager")}
       </div>
       <div class="modal-content">
         <p class="modal-kicker">1학년 ${escapeHtml(poster.classNumber)}반 포스터</p>
         <h2 id="modalTitle">${escapeHtml(poster.title)}</h2>
+        ${poster.imageSrc ? `
+          <a
+            class="button button-primary modal-image-link"
+            href="${escapeHtml(poster.imageSrc)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            포스터 원본 크게 열기
+          </a>
+        ` : ""}
         <div class="modal-section">
           <h3>대표 명장면</h3>
           <p>${escapeHtml(poster.mainScene)}</p>
@@ -433,8 +323,6 @@ function init() {
   activityOpenLink.href = activityUrl;
 
   renderPosters();
-  renderWorksheets();
-  renderScenes();
   renderReviews();
 
   filterButtons.forEach((button) => {
