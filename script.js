@@ -648,9 +648,8 @@ function renderStars(rating) {
   const safeRating = Math.max(0, Math.min(maxStars, Number(rating) || 0));
   const fullStars = Math.floor(safeRating);
   const hasHalfStar = safeRating - fullStars >= 0.5;
-  const emptyStars = maxStars - fullStars - (hasHalfStar ? 1 : 0);
 
-  return `${"★".repeat(fullStars)}${hasHalfStar ? "½" : ""}${"☆".repeat(emptyStars)}`;
+  return `${"★".repeat(fullStars)}${hasHalfStar ? "☆" : ""}`;
 }
 
 function createPosterImageMarkup(poster, imageClass = "", loading = "lazy") {
