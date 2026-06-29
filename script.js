@@ -1,20 +1,23 @@
 // Replace the sample data below with actual student worksheet data and poster image paths.
 // For poster images, put files in a folder such as images/ and change imageSrc to "images/class-1-poster.jpg".
+const activityUrl = "https://script.google.com/macros/s/AKfycbwvvqpjxUDxk86gbdVjh8EVd_rA_RMzSHn1DR6YJNtaRuNo6Plf6EQV2a5accizl7U/exec";
+
 const posters = [
   {
     id: "class-1",
     classNumber: 1,
     title: "1학년 1반 포스터",
-    imageSrc: "",
+    imageSrc: "assets/posters/class-1-poster.png",
     imageAlt: "1학년 1반 영화 포스터",
-    copy: "말보다 먼저 도착한 마음, 보리가 바라본 세상",
-    mainScene: "가족의 마음을 조용히 바라보는 보리의 장면",
-    description: "인물의 표정보다 주변의 공기와 색을 크게 살려, 보리가 느낀 외로움과 따뜻함이 함께 보이도록 구성한 포스터입니다.",
-    intention: "1반은 보리가 가족을 사랑하지만 쉽게 말하지 못하는 마음에 주목했습니다. 포스터에는 넓은 하늘과 잔잔한 바다의 이미지를 배치해, 말로 다 설명되지 않는 감정이 천천히 번지는 느낌을 담았습니다.",
-    quotePreview: "“보리가 혼자라고 느끼는 순간에도 가족을 향한 마음은 계속 남아 있었다.”",
+    copy: "“들리지 않아도 들리는 것처럼 이어진 이야기”",
+    mainScene: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면",
+    description: "하늘빛 배경과 따뜻한 인물 구도를 통해, 말하지 않아도 서로에게 닿는 마음을 중심에 둔 포스터입니다.",
+    intention: "1반은 보리와 아빠가 서로를 바라보는 장면에 담긴 소통의 온기에 주목했습니다. 넓은 하늘과 부드러운 빛을 배경으로 배치해, 소리보다 마음이 먼저 전해지는 영화의 정서를 표현했습니다.",
+    quotePreview: "“마음으로 소통하는 따뜻한 영화”",
     relatedReviews: [
-      "보리의 마음을 따라가다 보니 조용한 장면도 크게 느껴졌다.",
-      "가족을 사랑하는 마음이 말보다 오래 남는 영화였다."
+      "마음으로 소통하는 따뜻한 영화",
+      "말하지 않아도 전할 수 있다",
+      "‘하늘보리’보다 주인공 ‘보리’가 더 좋아졌다"
     ]
   },
   {
@@ -57,19 +60,19 @@ const worksheets = [
     id: "w-101",
     classNumber: 1,
     studentLabel: "학생 A",
-    scene: "가족의 마음을 조용히 바라보는 보리의 장면",
-    reason: "보리가 외롭지만 가족을 미워하지 않는 마음이 느껴져서 오래 기억에 남았다.",
-    rating: 5,
-    review: "말하지 못한 마음까지 들려주는 영화였다."
+    scene: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면",
+    reason: "말하지 않아도 서로를 바라보는 표정에서 따뜻한 마음이 전해져 오래 기억에 남았다.",
+    rating: 4,
+    review: "마음으로 소통하는 따뜻한 영화"
   },
   {
     id: "w-102",
     classNumber: 1,
     studentLabel: "학생 B",
-    scene: "바다와 하늘이 함께 보이는 장면",
-    reason: "넓은 풍경 속에서 보리의 마음이 더 크게 느껴졌고 포스터로 표현하기 좋다고 생각했다.",
+    scene: "보리와 가족이 마음을 확인하는 장면",
+    reason: "소리로 다 말하지 않아도 마음을 전할 수 있다는 점이 영화의 주제와 잘 어울렸다.",
     rating: 4,
-    review: "잔잔하지만 마음이 오래 남았다."
+    review: "말하지 않아도 전할 수 있다"
   },
   {
     id: "w-201",
@@ -116,6 +119,10 @@ const scenes = [
     note: "1반 포스터의 중심 장면 · 외로움과 애정"
   },
   {
+    title: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면",
+    note: "1반 실제 포스터 장면 · 마음으로 전하는 말"
+  },
+  {
     title: "소리와 침묵 사이에서 마음을 나누는 장면",
     note: "2반 포스터의 중심 장면 · 소통과 이해"
   },
@@ -134,23 +141,23 @@ const reviews = [
   {
     id: "r-101",
     classNumber: 1,
-    rating: 5,
-    text: "보리의 마음을 따라가다 보니 조용한 장면도 크게 느껴졌다.",
-    scene: "가족의 마음을 조용히 바라보는 장면"
+    rating: 4,
+    text: "마음으로 소통하는 따뜻한 영화",
+    scene: "보리와 아빠가 마주 앉아 마음으로 소통하는 장면"
   },
   {
     id: "r-102",
     classNumber: 1,
     rating: 4,
-    text: "잔잔하지만 마음이 오래 남는 영화였다.",
-    scene: "바다와 하늘이 함께 보이는 장면"
+    text: "말하지 않아도 전할 수 있다",
+    scene: "보리와 가족이 마음을 확인하는 장면"
   },
   {
     id: "r-103",
     classNumber: 1,
-    rating: 5,
-    text: "가족을 사랑하는 마음이 말보다 오래 남았다.",
-    scene: "가족을 다시 바라보는 장면"
+    rating: 3,
+    text: "‘하늘보리’보다 주인공 ‘보리’가 더 좋아졌다",
+    scene: "보리의 매력이 드러나는 장면"
   },
   {
     id: "r-201",
@@ -200,6 +207,8 @@ const posterGrid = document.querySelector("#posterGrid");
 const worksheetBoard = document.querySelector("#worksheetBoard");
 const sceneList = document.querySelector("#sceneList");
 const reviewGrid = document.querySelector("#reviewGrid");
+const activityFrame = document.querySelector("#activityFrame");
+const activityOpenLink = document.querySelector("#activityOpenLink");
 const filterButtons = document.querySelectorAll(".filter-button");
 const modal = document.querySelector("#posterModal");
 const modalPanel = modal.querySelector(".modal-panel");
@@ -420,6 +429,9 @@ function handleKeydown(event) {
 }
 
 function init() {
+  activityFrame.src = activityUrl;
+  activityOpenLink.href = activityUrl;
+
   renderPosters();
   renderWorksheets();
   renderScenes();
