@@ -24,7 +24,7 @@ const posters = [
     id: "class-2",
     classNumber: 2,
     title: "1학년 2반 포스터",
-    imageSrc: "",
+    imageSrc: "assets/posters/class-2-poster.png",
     imageAlt: "1학년 2반 영화 포스터",
     copy: "다르게 들리는 세상 속에서 서로를 이해하는 법",
     mainScene: "소리와 침묵 사이에서 마음을 나누는 장면",
